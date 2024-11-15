@@ -15,9 +15,14 @@ RUN apt-get update && apt-get install -y \
         libicu-dev \
         libpq-dev \
         libzip-dev \
+        librabbitmq-dev \
+        libssl-dev \
     && docker-php-ext-install -j$(nproc) zip \
     && docker-php-ext-install -j$(nproc) pgsql \
     && docker-php-ext-install -j$(nproc) pdo_pgsql \
+    && docker-php-ext-install -j$(nproc) sockets \
+    && pecl install amqp \
+    && docker-php-ext-enable amqp \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
