@@ -1,6 +1,10 @@
 framework:
     messenger:
         transports:
-            async:  '%env(MESSENGER_TRANSPORT_DSN)%'
+            order_queue: '%env(MESSENGER_TRANSPORT_DSN)%/order_queue'
+            warehouse_queue: '%env(MESSENGER_TRANSPORT_DSN)%/warehouse_queue'
+            receipt_queue: '%env(MESSENGER_TRANSPORT_DSN)%/receipt_queue'
         routing:
-            App\Message\ReportMessage: async
+            'App\Message\OrderMessage': order_queue
+            'App\Message\WarehouseNotificationMessage': warehouse_queue
+            'App\Message\ReceiptMessage': receipt_queue
