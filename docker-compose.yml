@@ -14,7 +14,7 @@ services:
             - postgres
         networks:
             default:
-                ipv4_address: 10.0.0.5
+                ipv4_address: 10.5.0.5
     php:
         build: .docker
         restart: always
@@ -25,7 +25,7 @@ services:
             - /etc/timezone:/etc/timezone:ro
         networks:
             default:
-                ipv4_address: 10.0.0.6
+                ipv4_address: 10.5.0.6
 
     postgres:
         image: postgres
@@ -40,7 +40,7 @@ services:
         restart: always
         networks:
             default:
-                ipv4_address: 10.0.0.9
+                ipv4_address: 10.5.0.9
 
     pgadmin:
         image: dpage/pgadmin4
@@ -57,7 +57,7 @@ services:
         restart: always
         networks:
             default:
-                ipv4_address: 10.0.0.10
+                ipv4_address: 10.5.0.10
     rabbitmq:
         image: "rabbitmq:management"
         ports:
@@ -68,7 +68,7 @@ services:
             RABBITMQ_DEFAULT_PASS: password
         networks:
             default:
-                ipv4_address: 10.0.0.8
+                ipv4_address: 10.5.0.8
 
 networks:
     default:

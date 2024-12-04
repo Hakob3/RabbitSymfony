@@ -30,6 +30,9 @@ rm: #Добавить хосты проекта в файл hosts
 test-all: #Запуск всех тестов
 	sh MakeCommands/test-all.sh
 
+load:
+	sh MakeCommands/load.sh
+
 lint: #Запуск PHPStan и PHPCS
 	sh MakeCommands/lint.sh
 
